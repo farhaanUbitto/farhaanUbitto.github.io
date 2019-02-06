@@ -4,7 +4,13 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 
 var phrases = [
   '안녕하세요',
-  '사과'
+  '사과',
+  '내일',
+  '초',
+  '아름다운',
+  '사용하다',
+  '못생긴',
+  '어려운'
 ];
 
 var phrasePara = document.querySelector('.phrase');
