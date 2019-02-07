@@ -1,7 +1,8 @@
-document.body.style.backgroundColor = "blue";
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+document.getElementById("msg").style.display = "none";
 
 var phrases = [
   '소녀는 소년이다.'
@@ -19,11 +20,11 @@ function randomPhrase() {
 }
 
 function testSpeech() {
-  document.body.style.backgroundColor = "blue"; 
   testBtn.disabled = true;
   testBtn.textContent = 'Test in progress';
 
-  var phrase = phrases[randomPhrase()];
+  //var phrase = phrases[randomPhrase()];
+  var phrase = document.getElementById("oriphrase").value;
   // To ensure case consistency while checking with the returned output text
   //phrase = phrase.toLowerCase();
   phrasePara.textContent = phrase;
@@ -53,9 +54,21 @@ function testSpeech() {
     // These also have getters so they can be accessed like arrays.
     // The second [0] returns the SpeechRecognitionAlternative at position 0.
     // We then return the transcript property of the SpeechRecognitionAlternative object 
-    var speechResult = event.results[0][0].transcript + '.';
-    console.log(event.results[0][0].transcript);
-    diagnosticPara.textContent = 'Speech received: ' + speechResult;
+	if(phrase.endsWith("."))
+	{
+		var speechResult = event.results[0][0].transcript + '.';
+	}
+	else
+	{
+		var speechResult = event.results[0][0].transcript;
+	}
+	
+    diagnosticPara.textContent =  speechResult;
+	document.getElementById("msg").style.display = "block";
+	console.log(speechResult);
+	console.log(phrase);
+	console.log("is speechResult === phrase ?");
+	console.log(speechResult === phrase);
     if(speechResult === phrase) {
       resultPara.textContent = 'I heard the correct phrase!';
       resultPara.style.background = 'lime';
@@ -69,8 +82,7 @@ function testSpeech() {
 
   recognition.onspeechend = function() {
     recognition.stop();
-    testBtn.disabled = false;
-    testBtn.textContent = 'Start new test';
+
   }
 
   recognition.onerror = function(event) {
@@ -87,12 +99,14 @@ function testSpeech() {
   recognition.onaudioend = function(event) {
       //Fired when the user agent has finished capturing audio.
       console.log('SpeechRecognition.onaudioend');
-      document.body.style.backgroundColor = "grey";
   }
   
   recognition.onend = function(event) {
       //Fired when the speech recognition service has disconnected.
       console.log('SpeechRecognition.onend');
+	  document.getElementById('speaker').src= "" ;
+	  testBtn.disabled = false;
+	  testBtn.textContent = 'Start new test';
   }
   
   recognition.onnomatch = function(event) {
@@ -103,6 +117,7 @@ function testSpeech() {
   recognition.onsoundstart = function(event) {
       //Fired when any sound — recognisable speech or not — has been detected.
       console.log('SpeechRecognition.onsoundstart');
+	  document.getElementById('speaker').src= "noun_speaking_1749116.svg" ;
   }
   
   recognition.onsoundend = function(event) {
@@ -117,6 +132,7 @@ function testSpeech() {
   recognition.onstart = function(event) {
       //Fired when the speech recognition service has begun listening to incoming audio with intent to recognize grammars associated with the current SpeechRecognition.
       console.log('SpeechRecognition.onstart');
+	  document.getElementById("msg").style.display = "none";
   }
 }
 

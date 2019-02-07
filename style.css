@@ -19,7 +19,7 @@ h1, p {
 
 div p {
   padding: 20px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.1);
 }
 
 div {
@@ -37,6 +37,26 @@ button {
   width: 170px;
   line-height: 2;
   margin-top: 30px;
+}
+
+input {
+  margin: 0 auto;
+  display: block;
+  font-size: 1.1rem;
+  width: 170px;
+  line-height: 2;
+  margin-top: 30px;
+}
+
+img{
+	margin: 0 auto;
+	display: block;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	
+
 }
 
 @media all and (max-height: 410px) {
