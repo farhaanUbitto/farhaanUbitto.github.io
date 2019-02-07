@@ -5,7 +5,7 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 
 var phrases = [
   '안녕하세요',
-  '소년은 소년이다'
+  '소녀는 소년이다.'
 ];
 
 var phrasePara = document.querySelector('.phrase');
