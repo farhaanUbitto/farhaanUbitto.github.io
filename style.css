@@ -25,7 +25,7 @@ div p {
 
 div {
   overflow: auto;
-  position: absolute;
+  min-height: 1000px;
   bottom: 0;
   right: 0;
   left: 0;
