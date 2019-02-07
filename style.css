@@ -61,7 +61,7 @@ img{
 
 @media all and (max-height: 410px) {
   div {
-    position: static;
+    
   }
 }
 
