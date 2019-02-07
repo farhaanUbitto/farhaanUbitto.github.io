@@ -4,7 +4,6 @@ var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
 var phrases = [
-  '안녕하세요',
   '소녀는 소년이다.'
 ];
 
@@ -56,7 +55,6 @@ function testSpeech() {
     // We then return the transcript property of the SpeechRecognitionAlternative object 
     var speechResult = event.results[0][0].transcript;
     diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
-    document.body.style.backgroundColor = "red";
     if(speechResult === phrase) {
       resultPara.textContent = 'I heard the correct phrase!';
       resultPara.style.background = 'lime';
@@ -83,6 +81,7 @@ function testSpeech() {
   recognition.onaudiostart = function(event) {
       //Fired when the user agent has started to capture audio.
       console.log('SpeechRecognition.onaudiostart');
+      document.body.style.backgroundColor = "grey";
   }
   
   recognition.onaudioend = function(event) {
