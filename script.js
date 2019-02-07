@@ -1,4 +1,5 @@
-﻿var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+document.body.style.backgroundColor = "blue";
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
@@ -42,8 +43,7 @@ function testSpeech() {
   //recognition.continuous = true;
   recognition.maxAlternatives = 1;
 
-  recognition.start();
-   document.body.style.backgroundColor = "red"; 
+  recognition.start(); 
 
   recognition.onresult = function(event) {
     // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
@@ -56,6 +56,7 @@ function testSpeech() {
     // We then return the transcript property of the SpeechRecognitionAlternative object 
     var speechResult = event.results[0][0].transcript;
     diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
+    document.body.style.backgroundColor = "red";
     if(speechResult === phrase) {
       resultPara.textContent = 'I heard the correct phrase!';
       resultPara.style.background = 'lime';
