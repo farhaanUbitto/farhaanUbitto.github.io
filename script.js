@@ -12,15 +12,30 @@ var phrasePara = document.querySelector('.phrase');
 var resultPara = document.querySelector('.result');
 var diagnosticPara = document.querySelector('.output');
 
-var testBtn = document.querySelector('button');
+var testBtn = document.querySelector('#testbutton');
+var hearBtn = document.querySelector('#hearbutton');
+
 
 function randomPhrase() {
   var number = Math.floor(Math.random() * phrases.length);
   return number;
 }
 
+function hearSpeech() {
+  testBtn.disabled = true;
+  hearBtn.disabled = true;
+  
+  let utterance = new SpeechSynthesisUtterance(document.getElementById("oriphrase").value);
+  utterance.lang = 'ko-KR';
+  speechSynthesis.speak(utterance);
+
+   testBtn.disabled = false;
+   hearBtn.disabled = false;
+}
+
 function testSpeech() {
   testBtn.disabled = true;
+  hearBtn.disabled = true;
   testBtn.textContent = 'Test in progress';
 
   //var phrase = phrases[randomPhrase()];
@@ -106,6 +121,7 @@ function testSpeech() {
       console.log('SpeechRecognition.onend');
 	  document.getElementById('speaker').src= "" ;
 	  testBtn.disabled = false;
+	  hearBtn.disabled = false;
 	  testBtn.textContent = 'Start new test';
   }
   
@@ -137,3 +153,4 @@ function testSpeech() {
 }
 
 testBtn.addEventListener('click', testSpeech);
+hearBtn.addEventListener('click', hearSpeech);

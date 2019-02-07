@@ -72,3 +72,8 @@ img{
 .output {
   font-style: italic;
 }
+
+.hearbutton
+{
+	float: right;
+}
