@@ -4,13 +4,10 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 
 var phrases = [
   '안녕하세요',
-  '사과',
-  '내일',
+  '한국 사람의 이름은 보통 이름이 세 글자인데 성이 한 글자이고 이름이 두 글자입니다.',
+  '이름을 쓸 때는 먼저 성을 쓰고 그 다음에 이름을 씁니다.',
   '초',
-  '아름다운',
-  '사용하다',
-  '못생긴',
-  '어려운'
+  '다른 사람의 이름을 부를 때는 씨를 붙여서 박영민씨 영민씨라고 부릅니다'
 ];
 
 var phrasePara = document.querySelector('.phrase');
