@@ -4,10 +4,7 @@ var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEv
 
 var phrases = [
   '안녕하세요',
-  '한국 사람의 이름은 보통 이름이 세 글자인데 성이 한 글자이고 이름이 두 글자입니다.',
-  '이름을 쓸 때는 먼저 성을 쓰고 그 다음에 이름을 씁니다.',
-  '초',
-  '다른 사람의 이름을 부를 때는 씨를 붙여서 박영민씨 영민씨라고 부릅니다'
+  '소년은 소년이다'
 ];
 
 var phrasePara = document.querySelector('.phrase');
@@ -38,8 +35,10 @@ function testSpeech() {
   var speechRecognitionList = new SpeechGrammarList();
   speechRecognitionList.addFromString(grammar, 1);
   recognition.grammars = speechRecognitionList;
-  recognition.lang = 'ko-KR';
+  recognition.lang = 'en-US';
+  //recognition.lang = 'ko-KR';
   recognition.interimResults = false;
+  //recognition.continuous = true;
   recognition.maxAlternatives = 1;
 
   recognition.start();
@@ -53,7 +52,7 @@ function testSpeech() {
     // These also have getters so they can be accessed like arrays.
     // The second [0] returns the SpeechRecognitionAlternative at position 0.
     // We then return the transcript property of the SpeechRecognitionAlternative object 
-    var speechResult = event.results[0][0].transcript.toLowerCase();
+    var speechResult = event.results[0][0].transcript;
     diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
     if(speechResult === phrase) {
       resultPara.textContent = 'I heard the correct phrase!';
