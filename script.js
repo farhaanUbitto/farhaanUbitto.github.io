@@ -35,8 +35,8 @@ function testSpeech() {
   var speechRecognitionList = new SpeechGrammarList();
   speechRecognitionList.addFromString(grammar, 1);
   recognition.grammars = speechRecognitionList;
-  recognition.lang = 'en-US';
-  //recognition.lang = 'ko-KR';
+  //recognition.lang = 'en-US';
+  recognition.lang = 'ko-KR';
   recognition.interimResults = false;
   //recognition.continuous = true;
   recognition.maxAlternatives = 1;
