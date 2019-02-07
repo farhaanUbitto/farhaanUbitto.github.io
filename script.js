@@ -82,12 +82,12 @@ function testSpeech() {
   recognition.onaudiostart = function(event) {
       //Fired when the user agent has started to capture audio.
       console.log('SpeechRecognition.onaudiostart');
-      document.body.style.backgroundColor = "grey";
   }
   
   recognition.onaudioend = function(event) {
       //Fired when the user agent has finished capturing audio.
       console.log('SpeechRecognition.onaudioend');
+      document.body.style.backgroundColor = "grey";
   }
   
   recognition.onend = function(event) {
