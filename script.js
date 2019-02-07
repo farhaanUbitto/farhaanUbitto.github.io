@@ -19,12 +19,13 @@ function randomPhrase() {
 }
 
 function testSpeech() {
+  document.body.style.backgroundColor = "blue"; 
   testBtn.disabled = true;
   testBtn.textContent = 'Test in progress';
 
   var phrase = phrases[randomPhrase()];
   // To ensure case consistency while checking with the returned output text
-  phrase = phrase.toLowerCase();
+  //phrase = phrase.toLowerCase();
   phrasePara.textContent = phrase;
   resultPara.textContent = 'Right or wrong?';
   resultPara.style.background = 'rgba(0,0,0,0.2)';
@@ -42,6 +43,7 @@ function testSpeech() {
   recognition.maxAlternatives = 1;
 
   recognition.start();
+   document.body.style.backgroundColor = "red"; 
 
   recognition.onresult = function(event) {
     // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
