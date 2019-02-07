@@ -41,6 +41,13 @@ input {
   margin-top: 30px;
 }
 
+img{
+	display: block;
+	width: 200px;
+	
+
+}
+
 @media all and (max-height: 410px) {
   div {
     
