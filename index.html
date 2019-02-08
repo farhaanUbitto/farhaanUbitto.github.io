@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
 
+
     <title>Phrase matcher</title>
 
     <link rel="stylesheet" href="style.css">
@@ -14,23 +15,50 @@
   </head>
 
   <body>
-    <h1>Phrase matcher</h1>
-	<input type="text" id="oriphrase"></input>
-    <p>Press the button then say the phrase in the text box</p>
 
+
+<div class="grid-container">
+
+  <div class="headers">
+  <h1>Yoon Ssam Korean Pronounciation Test</h1>
+  </div>
+  
+  <div class="toggle">
+  
+  
+	<input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+	
+	
+	
+  </div>
+  <div class="hearbtn">
 	<button id="hearbutton">Hear a speaker</button>
-    <button id="testbutton">Start new test</button>
-	<img id="speaker" >
-		
-	</img>
-
-    <div>
-        <p class="phrase">Phrase...</p>
-		<p class="output">...diagnostic messages</p>
-		<p id="msg">^ Speech received ^</p>
-        <p class="result">Right or wrong?</p>
-        
-    </div>
+  </div>
+  <div class="speakbtn">
+	<button id="testbutton">Start new test</button>
+  </div>
+  <div class="insertword">
+	<textarea id="oriphrase">
+안녕하세요
+</textarea>
+  </div>
+  
+    <div class="result">
+    <div class="said">
+	
+	</div>
+    <div class="given">
+	
+	</div>
+  </div>
+  <div class="accuracy">
+	<p class="resultMsg">Right or wrong?</p>
+  </div>
+  <div class="confidence"></div>
+  <div class="diagmsg">
+	<p class="output">...diagnostic messages</p>
+  </div>
+</div>
 
     <script src="script.js"></script>
   </body>
